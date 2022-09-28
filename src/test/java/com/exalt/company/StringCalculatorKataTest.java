@@ -31,7 +31,7 @@ class StringCalculatorKataTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"//;\n1;-2", "//;\n-1;2", "//;\n-1;-2"})
+    @ValueSource(strings = {"\n1,-2", "//;\n-1;2", "-1,-2"})
     void addWithNegatives(String string) {
         assertThrows(UnsupportedOperationException.class, () -> stringCalculatorKata.add(string));
     }
