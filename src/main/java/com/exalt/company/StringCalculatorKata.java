@@ -27,8 +27,23 @@ public class StringCalculatorKata {
 //    }
 
 //    step three :
+//    int add(String numbers) {
+//        return Arrays.stream(numbers.split("[,\n]"))
+//                .filter(((Predicate<String>) String::isEmpty).negate())
+//                .map(Integer::parseInt)
+//                .reduce(Integer::sum)
+//                .orElse(0);
+//    }
+
+//    step four :
     int add(String numbers) {
-        return Arrays.stream(numbers.split("[,\n]"))
+        String delimiter = ",";
+        if(numbers.contains("//")) {
+            delimiter = String.valueOf(numbers.charAt(numbers.lastIndexOf("/") + 1));
+        }
+        if(!delimiter.equals(","))
+            numbers = numbers.substring(numbers.indexOf("\n"));
+        return Arrays.stream(numbers.split(String.format("[%s\n]", delimiter)))
                 .filter(((Predicate<String>) String::isEmpty).negate())
                 .map(Integer::parseInt)
                 .reduce(Integer::sum)
