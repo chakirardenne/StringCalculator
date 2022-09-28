@@ -10,6 +10,14 @@ public class StringCalculatorKata {
 //    }
 
 //    step one :
+//    int add(String numbers) {
+//        if(numbers.isEmpty())
+//            return 0;
+//        String[] strings = numbers.split(",", 2);
+//        return Integer.parseInt(strings[0]) + Integer.parseInt(strings[1]);
+//    }
+
+//    step two :
     int add(String numbers) {
         return Arrays.stream(numbers.split(","))
                 .filter(((Predicate<String>) String::isEmpty).negate())
