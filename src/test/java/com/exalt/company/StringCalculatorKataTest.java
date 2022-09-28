@@ -2,11 +2,9 @@ package com.exalt.company;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
 
@@ -37,7 +35,7 @@ class StringCalculatorKataTest {
                 arguments("1,2", 3),
                 arguments("50,550", 600),
                 arguments("3,7", 10),
-                arguments("3,-2", 10),
+                arguments("3,2", 5),
                 arguments("", 0)
         );
     }
