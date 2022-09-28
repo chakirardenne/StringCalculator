@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,14 +30,16 @@ class StringCalculatorKataTest {
         assertEquals(stringCalculatorKata.add(string), sum);
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"//;\n1;-2", "//;\n-1;2", "//;\n-1;-2"})
+    void addWithNegatives(String string) {
+        assertThrows(UnsupportedOperationException.class, () -> stringCalculatorKata.add(string));
+    }
+
     private static Stream<Arguments> addProvider() {
         return Stream.of(
                 arguments("1,2", 3),
-                arguments("50,550", 600),
-                arguments("3,7", 10),
-                arguments("3,2", 5),
                 arguments("1\n2,3", 6),
-                arguments("1\n2,3\n,6,\n7", 19),
                 arguments("//;\n1;2", 3),
                 arguments("", 0)
         );
