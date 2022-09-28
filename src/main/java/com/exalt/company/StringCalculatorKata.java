@@ -18,8 +18,17 @@ public class StringCalculatorKata {
 //    }
 
 //    step two :
+//    int add(String numbers) {
+//        return Arrays.stream(numbers.split(","))
+//                .filter(((Predicate<String>) String::isEmpty).negate())
+//                .map(Integer::parseInt)
+//                .reduce(Integer::sum)
+//                .orElse(0);
+//    }
+
+//    step three :
     int add(String numbers) {
-        return Arrays.stream(numbers.split(","))
+        return Arrays.stream(numbers.split("[,\n]"))
                 .filter(((Predicate<String>) String::isEmpty).negate())
                 .map(Integer::parseInt)
                 .reduce(Integer::sum)
