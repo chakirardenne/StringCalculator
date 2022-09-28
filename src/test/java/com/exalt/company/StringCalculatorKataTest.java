@@ -37,6 +37,7 @@ class StringCalculatorKataTest {
                 arguments("3,2", 5),
                 arguments("1\n2,3", 6),
                 arguments("1\n2,3\n,6,\n7", 19),
+                arguments("//;\n1;2", 3),
                 arguments("", 0)
         );
     }
